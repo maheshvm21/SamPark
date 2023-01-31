@@ -6,7 +6,7 @@ body{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  color:rgb(223, 205, 205);
+  /* color:rgb(223, 205, 205); */
   background-size: cover;
   opacity: 0.9;
 }

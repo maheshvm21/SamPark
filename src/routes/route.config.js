@@ -1,3 +1,5 @@
+import Dashboard from '../components/Dashboard'
+import Reports from '../components/Reports'
 import ServiceTicketTable from '../components/ServiceTicketTable'
 import LoginPage from '../pages/LoginPage'
 
@@ -15,9 +17,15 @@ export const RoutesConfig = [
     component: LoginPage,
   },
   {
-    path: '/servicetickettable',
+    path: '/dashboard',
     exact: true,
     restricted: true,
-    component: ServiceTicketTable,
+    component: Dashboard,
+  },
+  {
+    path: '/reports',
+    exact: true,
+    restricted: true,
+    component: Reports,
   },
 ]

@@ -4,10 +4,12 @@ import { useAuthContext } from "../context/auth.context";
 import { useUserlogin } from "../hooks/login.hooks";
 import { userLogin } from "../services/auth.service";
 import { authConsts } from "../utils/actions.constants";
+import { Route, useHistory } from "react-router-dom";
 
 const LoginPage = () => {
   const { state, dispatch } = useAuthContext();
   const { mutate } = useUserlogin();
+  let usehistory_=useHistory()
 
   useEffect(() => {
     // userLogin('then').then(res => {
@@ -27,6 +29,11 @@ const LoginPage = () => {
     );
     dispatch({ type: authConsts.LOGIN_SUCCESS, data: "helo" });
   }, []);
+
+  const onSubmit=()=>{
+    localStorage.setItem('token',JSON.stringify({auth:true}))
+    usehistory_.push('/dashboard')
+  }
   return (
     <div>
         
@@ -68,7 +75,7 @@ const LoginPage = () => {
                   placeholder="Password"
                 />
               </div>
-              <button type="button" className="btn btn-primary btn-block">
+              <button type="button" className="btn btn-primary btn-block" onClick={()=>onSubmit()}>
                 LOGIN
               </button>
               <div className="message">
